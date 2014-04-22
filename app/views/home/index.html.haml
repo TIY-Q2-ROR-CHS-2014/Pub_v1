@@ -1,0 +1,15 @@
+%h1 List of Pubs
+= link_to "Create Pub", new_pub_path
+%br
+- @pubs.each do |pub|
+  = link_to pub.name, pub_path(pub, dude_man: "Hey dude")
+  %br
+  = pub.description
+  %br
+  = pub.phone_number
+  %br
+  = pub.location
+  = link_to "Edit", edit_pub_path(pub)
+  |
+  = link_to "Delete", pub_path(pub), method: :delete
+  %hr

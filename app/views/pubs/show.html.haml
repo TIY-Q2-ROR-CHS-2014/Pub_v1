@@ -1,0 +1,41 @@
+= link_to "Cancel", root_path
+%br
+= @pub.name
+%br
+= @pub.phone_number
+%br
+= @pub.location
+%br
+= @pub.description
+%hr
+= link_to "New Drink", new_pub_drink_path(@pub)
+%ul 
+  Drinks
+  - @drinks.each do |drink|
+    %li
+      = link_to drink.name, pub_drink_path(@pub, drink)
+      |
+      = drink.description
+      |
+      = drink.cost
+      |
+      = link_to "Edit", edit_pub_drink_path(@pub, drink)
+      |
+      = link_to "Delete", pub_drink_path(@pub, drink), method: :delete
+
+%hr
+= link_to "New Food", new_pub_food_path(@pub)
+%ul 
+  Foods
+  - @foods.each do |food|
+    %li
+      = link_to food.name, pub_food_path(@pub, food)
+      |
+      = food.description
+      |
+      = food.cost
+      |
+      = link_to "Edit", edit_pub_food_path(@pub, food)
+      |
+      = link_to "Delete", pub_food_path(@pub, food), method: :delete
+%hr

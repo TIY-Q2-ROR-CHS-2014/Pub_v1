@@ -1,0 +1,13 @@
+= form_for [@pub, @food] do |f|
+  = render 'layouts/error_messages', object: @food
+  = f.label :name
+  = f.text_field :name
+  %br
+  = f.label :cost
+  = f.text_field :cost
+  %br
+  = f.label :description
+  = f.text_area :description
+  %br
+  = f.submit
+= link_to "Cancel", pub_path(@pub)
